@@ -127,7 +127,7 @@ window.onload = function() {
     // Disable geolocation after user position is known
     geolocation.setTracking (false);
   });
-  
+
   // BING LAYERS
   
   let styles = [
@@ -185,6 +185,16 @@ window.onload = function() {
                 layers: [
                   vectorLayer
                 ]
+              }),
+
+              // ADD WMS LAYER
+              new ol.layer.Tile({
+                source: new ol.source.TileWMS({
+                  url: 'https://data.stadt-salzburg.at/geodaten/wms',
+                  params: {'LAYERS': 'forschung', 'TILED': true, 'TRANSPARENT': true},
+                  serverType: 'geoserver',
+                  transition: 0,
+                }),
               })
         ],
        //map.addControl(), 
