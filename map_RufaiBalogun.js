@@ -168,12 +168,29 @@ window.onload = function() {
       })
     );
 
+// ADD WFS LAYER
+let wfs_source = new ol.source.Vector({
+  format: new ol.format.GML(),
+  url: function (extent) {
+    return (
+      'https://dservices.arcgis.com/Sf0q24s0oDKgX14j/arcgis/services/ParkingSpaces/WFSServer' +
+                                    '?service=wfs&request=getfeature&typeNames=ParkingSpaces:ParkingSpaces&srsname=EPSG:3857' +
+                                    '&outputFormat=GML3&bbox=' + extent.join(',') + ',EPSG:3857'
+    );
+  },
+  strategy: ol.loadingstrategy.bbox,
+});
+
+let wfs_vector = new ol.layer.Vector({
+  source: wfs_source
+})
+
   //--MAP DISPLAY AND VIEW--//
     let map = new ol.Map({
         target: 'map',
         layers: [
           //Layer Groups for the basemaps and overlays
-          new ol.layer.Group(
+        new ol.layer.Group(
             {
               title: "Base Maps",
               layers: baseLayers
@@ -183,20 +200,23 @@ window.onload = function() {
                 title: "Overlays", 
                 combine: false, 
                 layers: [
-                  vectorLayer
+                  vectorLayer, 
+                  wfs_vector
                 ]
               }),
 
               // ADD WMS LAYER
               new ol.layer.Tile({
+                title: 'Salzburg WMS::: Research',
                 source: new ol.source.TileWMS({
                   url: 'https://data.stadt-salzburg.at/geodaten/wms',
                   params: {'LAYERS': 'forschung', 'TILED': true, 'TRANSPARENT': true},
-                  serverType: 'geoserver',
-                  transition: 0,
+                  serverType: 'geoserver'
                 }),
+              
               })
         ],
+
        //map.addControl(), 
         view: new ol.View({
           center: position, 
