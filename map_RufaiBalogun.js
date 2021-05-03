@@ -91,6 +91,7 @@ window.onload = function() {
       });
     
     let vectorLayer = new ol.layer.Vector({
+      title: 'Vector Layer',
       source: vectorSource
     });
     
@@ -182,8 +183,12 @@ let wfs_source = new ol.source.Vector({
 });
 
 let wfs_vector = new ol.layer.Vector({
+  title: 'WFS Layer',
   source: wfs_source
 })
+  
+// ADD FLICKR POST
+
 
   //--MAP DISPLAY AND VIEW--//
     let map = new ol.Map({
@@ -195,16 +200,13 @@ let wfs_vector = new ol.layer.Vector({
               title: "Base Maps",
               layers: baseLayers
             }), 
-            new ol.layer.Group(
-              {
-                title: "Overlays", 
-                combine: false, 
-                layers: [
-                  vectorLayer, 
-                  wfs_vector
-                ]
-              }),
-
+        new ol.layer.Group(
+          {
+            title: "Overlays", 
+            combine: false,
+            layers: [
+              vectorLayer,
+              wfs_vector,
               // ADD WMS LAYER
               new ol.layer.Tile({
                 title: 'Salzburg WMS::: Research',
@@ -213,9 +215,10 @@ let wfs_vector = new ol.layer.Vector({
                   params: {'LAYERS': 'forschung', 'TILED': true, 'TRANSPARENT': true},
                   serverType: 'geoserver'
                 }),
-              
               })
-        ],
+            ]
+          }),
+      ],
 
        //map.addControl(), 
         view: new ol.View({
