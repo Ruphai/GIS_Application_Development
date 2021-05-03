@@ -188,6 +188,13 @@ let wfs_vector = new ol.layer.Vector({
 })
   
 // ADD FLICKR POST
+flickrJSONString = JSON.parse('http://berndresch.com/download/work/flickr_salzburg.json');
+var flickr_post = "";
+var x;
+for (x in flickrJSONString) {
+  flickr_post = flickrJSONString['date'] + flickrJSONString['text'] + flickrJSONString['photo_url'];
+  new ol.Feature(flickr_post);
+}
 
 
   //--MAP DISPLAY AND VIEW--//
