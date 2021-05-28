@@ -1,0 +1,1 @@
+﻿arcpy.env.workspace = r"C:\Users\rufai\OneDrive\Desktop\Summer Semester\GIS Application Development\Python Geoprocessing\PythonGP\Data\SanJuan.gdb"

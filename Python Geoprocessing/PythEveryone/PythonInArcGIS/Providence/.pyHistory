@@ -1,0 +1,1 @@
+﻿arcpy.analysis.Clip("RI_Sewers", "Providence", r"C:\Users\rufai\OneDrive\Desktop\Summer Semester\GIS Application Development\Python Geoprocessing\PythEveryone\PythonInArcGIS\Providence\RhodeIsland.gdb\Sewers", None)
