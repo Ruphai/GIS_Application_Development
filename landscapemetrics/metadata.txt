@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Zonal Landscape Metrics
+qgisMinimumVersion=3.0
+description=This plugin compute a set of  landscape metrics on a zonal level using categorical vector layers.
+version=0.1
+author=Lydia Letaru & Rufai Balogun
+email=rufai.balogun@sbg.ac.at
+
+about=This python geoprocessing tool computes the landscape metrics on a zone level using categorical vector layers. The specific functions that this toolbox provides include: I. A direct analysis of user-defined vector-based categorical (polygon) layers, II. Computation of a set of available landscape metrics calculated within any user-defined zones – regular gridded zones, administrative zones, or even environmental zones, III. For specific applications users can generate specialized pie or hexagonal zones. It is important to note that regular sampling display better patterns and/ or processes in the landscape compared to other pre-defined units due to their equal area and perimeter that creates statistically similar units across the area being analyzed, and a defensible statistical basis for sampling purposes.
+
+tracker=http://bugs
+repository=http://repo
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=yes
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=python
+
+homepage=http://homepage
+category=Analysis
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False
+
